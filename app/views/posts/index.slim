@@ -1,8 +1,9 @@
-.container
-  .row
-    .col-12
-      .bg-primary
-        h1 Hello
-        ul
-          - @posts.each do |post|
-            li = post[:title]
+.posts
+  .posts__container
+    h1 Posts
+    a href="/posts/new" New Post
+    ul.posts__items
+      - @posts.each do |post|
+        li.posts__items__item
+          h2 = post[:title]
+          p = post[:body]

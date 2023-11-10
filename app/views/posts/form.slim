@@ -1,0 +1,9 @@
+.posts
+  .posts__container
+    h1 Post Form
+    = form_with url: '/posts', method: :post, class: 'posts__form' do |form|
+      label for="title" Title
+      input type="text" name="title" id="title"
+      label for="body" Body
+      textarea name="body" id="body" cols="30" rows="10"
+      button type="submit" Create Post
