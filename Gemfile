@@ -81,6 +81,10 @@ group :development do
 
   # better errors
   gem "better_errors"
+
+  gem "solargraph"
+
+  gem "ruby-lsp", require: false
 end
 
 group :test do
