@@ -10,6 +10,16 @@ services:
     depends_on:
       - db-development
       - db-test
+  solargraph:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    command: bundle exec solargraph socket --host=0.0.0.0 --port=7658
+    volumes:
+      - .:/rails
+      - bundle:/usr/local/bundle
+    ports:
+      - "7658:7658"
   db-development:
     image: postgres
     ports:
@@ -31,6 +41,7 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_DB: db_test
 volumes:
+  bundle:
   db_development:
   db_test:
 
