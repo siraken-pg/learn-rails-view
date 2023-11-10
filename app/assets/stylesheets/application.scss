@@ -1,5 +1,65 @@
 @import "./reset";
+@import "./var";
 
 body {
-  background-color: $primary;
+  background-color: $bg-color;
+}
+
+.posts {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  &__items {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    &__item {
+      width: 100%;
+      margin-bottom: 20px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+
+    &__input {
+      width: 100%;
+      margin-bottom: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    }
+
+    &__button {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+      background-color: #fff;
+      cursor: pointer;
+    }
+  }
 }
