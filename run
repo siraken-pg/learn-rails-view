@@ -1,0 +1,42 @@
+#!/bin/bash
+
+ARGS=${@:2}
+DC="docker compose"
+
+case $1 in
+up)
+  ${DC} up $ARGS
+;;
+down)
+  ${DC} down
+;;
+restart)
+  ${DC} down
+  ${DC} up
+;;
+build)
+  ${DC} build
+;;
+log|logs)
+  ${DC} logs -f
+;;
+bash)
+  ${DC} exec web bash
+;;
+rails)
+  ${DC} exec web rails $ARGS
+;;
+gem)
+  ${DC} exec web gem $ARGS
+;;
+bundle)
+  ${DC} exec web bundle $ARGS
+;;
+importmap)
+  ${DC} exec web bin/importmap $ARGS
+;;
+
+*)
+  echo Unexpected command: $1
+;;
+esac

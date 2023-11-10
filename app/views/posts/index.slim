@@ -1,0 +1,8 @@
+.container
+  .row
+    .col-12
+      .bg-primary
+        h1 Hello
+        ul
+          - @posts.each do |post|
+            li = post[:title]
