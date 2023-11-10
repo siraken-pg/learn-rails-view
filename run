@@ -35,7 +35,9 @@ bundle)
 importmap)
   ${DC} exec web bin/importmap $ARGS
 ;;
-
+rspec)
+  ${DC} exec web bundle exec rspec $ARGS
+;;
 *)
   echo Unexpected command: $1
 ;;
