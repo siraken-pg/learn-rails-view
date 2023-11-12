@@ -83,7 +83,6 @@ test:
 #
 production:
   <<: *default
-  database: db_test
   host: db-test
-  # username: app
+  database: db_test
   # password: <%= ENV["APP_DATABASE_PASSWORD"] %>

@@ -5,7 +5,7 @@ ARG RUBY_VERSION=3.2.2
 FROM registry.docker.com/library/ruby:$RUBY_VERSION-slim as base
 
 # Rails app lives here
-WORKDIR /rails
+WORKDIR /rails-app
 
 # Set production environment
 ENV RAILS_ENV="production" \
@@ -60,7 +60,7 @@ RUN apt-get update -qq && \
 
 # Copy built artifacts: gems, application
 COPY --from=build /usr/local/bundle /usr/local/bundle
-COPY --from=build /rails /rails
+COPY --from=build /rails-app /rails-app
 
 # Run and own only the runtime files as a non-root user for security
 RUN useradd rails --create-home --shell /bin/bash && \
@@ -68,7 +68,7 @@ RUN useradd rails --create-home --shell /bin/bash && \
 USER rails:rails
 
 # Entrypoint prepares the database.
-ENTRYPOINT ["/rails/bin/docker-entrypoint"]
+ENTRYPOINT ["/rails-app/bin/docker-entrypoint"]
 
 # Start the server by default, this can be overwritten at runtime
 EXPOSE 3000

@@ -4,7 +4,7 @@ services:
       context: .
       dockerfile: Dockerfile.dev
     volumes:
-      - .:/rails
+      - .:/rails-app
     ports:
       - "3000:3000"
     depends_on:
@@ -16,10 +16,12 @@ services:
       dockerfile: Dockerfile.dev
     command: bundle exec solargraph socket --host=0.0.0.0 --port=7658
     volumes:
-      - .:/rails
+      - .:/rails-app
       - bundle:/usr/local/bundle
     ports:
       - "7658:7658"
+    # logging:
+    #   driver: none
   db-development:
     image: postgres
     ports:
