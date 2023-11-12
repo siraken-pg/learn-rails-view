@@ -3,5 +3,15 @@
 ## Template engines
 
 - erb
-- haml
-- slim
+- [haml](https://haml.info/)
+- [slim](https://slim-template.github.io/)
+
+### Compile
+
+```bash
+# haml
+haml compile {PATH}
+
+# slim
+slimrb -c {PATH}
+```

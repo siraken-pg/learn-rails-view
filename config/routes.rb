@@ -5,6 +5,12 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
 
+  # Static pages
+  get "/pages/haml/" => "static_pages#haml_index"
+  get "/pages/haml/example" => "static_pages#haml_example"
+  get "/pages/slim/" => "static_pages#slim_index"
+  get "/pages/slim/example" => "static_pages#slim_example"
+
   # Defines the root path route ("/")
   root "posts#index"
 
