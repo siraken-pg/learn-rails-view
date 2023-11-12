@@ -18,7 +18,7 @@ build)
   ${DC} build
 ;;
 log|logs)
-  ${DC} logs -f
+  ${DC} logs $ARGS
 ;;
 bash)
   ${DC} exec web bash
